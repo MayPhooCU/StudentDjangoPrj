@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html len="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Student</title>
+    <script src="jquery.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+
+    <!-- Container Header -->
+    <div class="container header" id="header">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 align="center">Student Registeration</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-success" onclick="ShowStudent();">Student</button>
+                <button type="button" class="btn btn-primary" onclick="ShowCourse();">Course</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Container -->
+    <div class="container content" id="student">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>Student</h1>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#studentRegisterModal">Register</button>
+            </div>
+        </div>
+
+        <!-- Table Row -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Date Of Birth</th>
+                            <th>Email Address</th>
+                            <th>Mobile Number</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>Course Id</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody">
+                        <thread>
+                            <!-- Here will be show student information -->
+                        </thread>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Container -->
+    <div class="container content" id="course">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>Course</h1>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#courseRegisterModal">Register</button>
+            </div>
+        </div>
+
+        <!-- Table Row -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Id</th>
+                            <th>Course Name</th>
+                            <th>Major</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="courseTableBody">
+                        <thread>
+                            <!-- Here will be show student information -->
+                        </thread>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container Footer -->
+    <div class="container footer" id="footer">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 align="center"></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- This is Modal Container -->
+    <div class="container">
+
+        <!-- 	Student Register Modal  -->
+        <div class="modal fade" role="dialog" id="studentRegisterModal">
+            <div class="modal-dialog">
+
+                <!-- Modal Contant -->
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h3>Student Register</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form class="form">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Stuent ID</th>
+                                    <td>
+                                        <input type="number" class="form-control" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <td>
+                                        <input type="text" class="form-control" id="rStudentName">
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<th>Dath Of Birth</th>
+                                	<td>
+                                		<input type="date" class="form-control" id="rDateOfBirth">
+                                	</td>
+                                </tr>
+                                <tr>
+                                	<th>Email Address</th>
+                                	<td>
+                                		<input type="email" class="form-control" id="rEmailAddress">
+                                	</td>
+                                </tr>
+                                <tr>
+                                	<th>Mobile Number</th>
+                                	<td>
+                                		<input type="text" maxlength="11" class="form-control" id="rMobileNumber">
+                                	</td>
+                                </tr>
+                                <tr>
+                                	<th>Gender</th>
+                                	<td>
+                                		<input type="text" class="form-control" id="rGender">
+                                	</td>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <td>
+                                        <input type="text" class="form-control" id="rAddress">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Course Id</th>
+                                    <td>
+                                        <input type="text" class="form-control" id="rCourseId">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="CreateStudent();" window.location.assign="index.html">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        	<!-- Student Update Modal -->  
+          <div class="modal fade" role="dialog" id="studentUpdateModal">
+            <div class="modal-dialog">
+
+                <!-- Modal Contant -->
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h1>Student Update</h1>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form class="form">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Stuent ID</th>
+                                    <td>
+                                        <input type="number" class="form-control" name="" id="uStudentId" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <td>
+                                        <input type="text" class="form-control" name="" id="uStudentName">
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<th>Dath Of Birth</th>
+                                	<td>
+                                		<input type="date" class="form-control" id="uDateOfBirth">
+                                	</td>
+                                </tr>
+                                <tr>
+                                	<th>Email Address</th>
+                                	<td>
+                                		<input type="email" class="form-control" id="uEmailAddress">
+                                	</td>
+                                </tr>
+                                <tr>
+                                	<th>Mobile Number</th>
+                                	<td>
+                                		<input type="text" maxlength="11" class="form-control" id="uMobileNumber">
+                                	</td>
+                                </tr>
+                                <tr>
+                                	<th>Gender</th>
+                                	<td>
+                                		<input type="text" class="form-control" id="uGender">
+                                	</td>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <td>
+                                        <input type="text" class="form-control" name="" id="uAddress" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Course Id</th>
+                                    <td>
+                                        <input type="text" class="form-control" name="" id="uCourseId">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="UpdateStudent();">Update</button>
+                        <button type="button" class="btn btn-danger" onclick="DeleteStudent();">Delete</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <!-- Course Register Modal -->
+        <div class="modal fade" id="courseRegisterModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Course Register!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Course ID</th>
+                                    <td>
+                                        <input type="number" class="form-control" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <td>
+                                        <input type="text" class="form-control" id="rCourseName">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Major</th>
+                                    <td>
+                                        <input type="text" class="form-control" id="rMajor">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="CreateCourse();">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Update Modal -->
+        <div class="modal fade" id="courseUpdateModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Course Update!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Course ID</th>
+                                    <td>
+                                        <input type="number" class="form-control" id="uCourseId" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <td>
+                                        <input type="text" class="form-control" id="uCourseName">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Major</th>
+                                    <td>
+                                        <input type="text" class="form-control" id="uMajor">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" onclick="UpdateCourse();">Update</button>
+                        <button type="button" class="btn btn-warning" onclick="DeleteCourse();">Delete</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
