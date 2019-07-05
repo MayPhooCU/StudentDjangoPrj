@@ -1,0 +1,2 @@
+# StudentDjangoPrj
+Student Internship Project
